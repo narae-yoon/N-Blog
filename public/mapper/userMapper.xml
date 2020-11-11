@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="user">
+    <select id="selectAllUser">
+        SELECT  *
+        FROM    MBR
+        WHERE   1 = 1
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO MBR 	(
+								  MBR_NO
+								, MBR_EMAIL
+								, MBR_PW
+								, MBR_NKNM
+                , MBR_SX_CD 
+                , MBR_INTRO
+                , MBR_JN_DTT
+								)
+        SELECT
+				CONCAT('M', RIGHT((SELECT IFNULL(SUBSTRING(MAX(MBR_NO), 3)+1, 1) FROM MBR) + 100000, 5))
+			  , #{email}
+			  , #{pw}
+			  , #{nickname}
+        , 1
+        , #{introduce}
+        , NOW()
+    </insert>
+
+</mapper>

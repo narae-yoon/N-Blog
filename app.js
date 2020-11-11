@@ -1,6 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const mybatisMapper = require('mybatis-mapper');
+const pool = require('./config/database');
+mybatisMapper.createMapper(['./public/mapper/userMapper.xml']);
+
+const format = {language:'sql',indent:' '};
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -9,6 +14,13 @@ app.use(express.static('public'));
 app.locals.pretty = true;
 
 app.get('/', (req, res) => {
+    pool.getConnection( (err, conn) => {
+        const query = mybatisMapper.getStatement('user', 'selectAllUser',null,format) ;
+        console.log(query);
+        conn.query (query, (err, result, fields) => {
+            console.log(result);
+        })
+    })
     res.render('index');
 });
 
