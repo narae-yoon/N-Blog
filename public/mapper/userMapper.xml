@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
 <mapper namespace="user">
-    <select id="selectAllUser">
-        SELECT  *
-        FROM    MBR
-        WHERE   1 = 1
-    </select>
+  <select id="selectEmailCnt">
+    SELECT	COUNT(*)  cnt
+    FROM	  MBR
+    WHERE	  1 = 1
+    AND		  MBR_EMAIL = #{email}
+  </select>
+
+  <update id="addPwErr">
+    UPDATE	MBR
+    SET		  PW_ERR_CNT = PW_ERR_CNT + 1 
+    WHERE	  1 = 1
+    AND		  MBR_EMAIL = #{email};
+  </update>
+
+  <update id="resetPwErr">
+    UPDATE	MBR
+    SET		  PW_ERR_CNT = 0
+    WHERE	  1 = 1
+    AND		  MBR_EMAIL = #{email};
+  </update>
+
+  <select id="selectLogin">
+    SELECT
+        	MBR_EMAIL
+	      , MBR_PW
+        , MBR_NKNM
+        , MBR_INTRO
+    FROM	MBR
+    WHERE	1 = 1
+    AND		MBR_EMAIL = #{email}
+  </select>
+
 
     <insert id="insertUser">
         INSERT INTO MBR 	(
@@ -22,7 +49,7 @@
 			  , #{email}
 			  , #{pw}
 			  , #{nickname}
-        , 1
+        , #{gender}
         , #{introduce}
         , NOW()
     </insert>
