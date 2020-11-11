@@ -1,0 +1,4 @@
+node_modules
+
+# db 설정 파일
+# dbconfig.js

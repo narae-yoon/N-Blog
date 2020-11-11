@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include ('./common/head') %>
+    <title>N-blog</title>
+  </head>
+  <body>
+    <%- include ('./common/header') %>
+
+    <div class="wrap">
+      <section class="sign-up">
+        <img src="images/team_work_flatline.svg" alt="" class="sign-up__img" />
+        <div>
+          <h1 class="sign-up__title">회원가입</h1>
+          <form action="" method="post" class="sign-up__form">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" class="input" />
+
+            <label for="password">비밀번호</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="input"
+            />
+
+            <label for="nickname">닉네임</label>
+            <input type="text" id="nickname" name="nickname" class="input" />
+
+            <div>
+              <div>성별</div>
+              <label>
+                <input type="radio" name="gender" value="man" />
+                남
+              </label>
+              <label>
+                <input type="radio" name="gender" value="woman" />
+                여
+              </label>
+            </div>
+
+            <label for="info">회원소개</label>
+            <textarea
+              name="info"
+              id="info"
+              cols="30"
+              rows="10"
+              class="input"
+            ></textarea>
+
+            <button type="submit" class="btn btn-submit">가입</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
