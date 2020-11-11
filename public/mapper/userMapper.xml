@@ -34,24 +34,29 @@
   </select>
 
 
-    <insert id="insertUser">
-        INSERT INTO MBR 	(
-								  MBR_NO
-								, MBR_EMAIL
-								, MBR_PW
-								, MBR_NKNM
-                , MBR_SX_CD 
-                , MBR_INTRO
-                , MBR_JN_DTT
-								)
-        SELECT
-				CONCAT('M', RIGHT((SELECT IFNULL(SUBSTRING(MAX(MBR_NO), 3)+1, 1) FROM MBR) + 100000, 5))
+  <insert id="insertUser">
+    INSERT INTO MBR 	(
+			    MBR_NO
+			  , MBR_EMAIL
+			  , MBR_PW
+			  , MBR_NKNM
+        , MBR_SX_CD 
+        , MBR_INTRO
+        , MBR_STAT_CD
+        , MBR_JN_DTT
+        , PW_ERR_CNT
+		  )
+    VALUES (
+          (select concat('M', ((SELECT IFNULL(SUBSTRING(MAX(MBR_NO), 3)+1, 1) from MBR M))+100000000) from dual)
 			  , #{email}
 			  , #{pw}
 			  , #{nickname}
         , #{gender}
-        , #{introduce}
+        , #{intro}
+        , '109101'
         , NOW()
+        , 0
+      )
     </insert>
 
 </mapper>

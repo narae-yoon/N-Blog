@@ -13,17 +13,12 @@
         <div>
           <h1 class="sign-up__title">회원가입</h1>
 
-          <form action="/users/login" method="post" class="sign-up__form">
+          <form action="/users/signUp" method="post" class="sign-up__form">
             <label for="email">이메일</label>
             <input type="text" id="email" name="email" class="input" />
 
-            <label for="password">비밀번호</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="input"
-            />
+            <label for="pw">비밀번호</label>
+            <input type="password" id="pw" name="pw" class="input" />
 
             <label for="nickname">닉네임</label>
             <input type="text" id="nickname" name="nickname" class="input" />
@@ -40,10 +35,10 @@
               </label>
             </div>
 
-            <label for="info">회원소개</label>
+            <label for="intro">회원소개</label>
             <textarea
-              name="info"
-              id="info"
+              name="intro"
+              id="intro"
               cols="30"
               rows="10"
               class="input"
