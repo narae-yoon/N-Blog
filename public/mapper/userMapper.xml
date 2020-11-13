@@ -24,7 +24,8 @@
 
   <select id="selectLogin">
     SELECT
-        	MBR_EMAIL
+          MBR_NO
+        , MBR_EMAIL
 	      , MBR_PW
         , MBR_NKNM
         , MBR_INTRO

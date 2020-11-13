@@ -1,14 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const mybatisMapper = require('mybatis-mapper');
-const pool = require('./config/database');
+const session = require('express-session');
 const userRouter = require('./routes/users');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(express.static('public'));
+app.use(session({
+    secret: 'n_blog_session',
+    resave: false,
+    saveUninitialized: true
+}));
+app.use((req, res, next) => {
+    res.locals.login = req.session.login;
+    next();
+});
 
 app.use('/users',userRouter);
 

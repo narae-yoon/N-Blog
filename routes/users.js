@@ -2,11 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mybatisMapper = require('mybatis-mapper');
 const pool = require('../config/database');
+
 const format = {language:'sql',indent:' '};
 const router = express.Router();
 
-router.use(express.static('public'));
 mybatisMapper.createMapper(['./public/mapper/userMapper.xml']);
+
+router.use(express.static('public'));
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended:false }));
 
@@ -44,7 +46,17 @@ router.post('/login', (req, res) => {
                         console.log('[로그인: 성공]')
                         sql = mybatisMapper.getStatement('user','resetPwErr', param, format);
                         conn.query(sql);
-                        res.redirect('/');
+
+                        req.session.login = {
+                            no: userInfo[0].MBR_NO,
+                            email: userInfo[0].MBR_EMAIL,
+                            nickname: userInfo[0].MBR_NKNM,
+                            intro: userInfo[0].MBR_INTRO
+                        };
+
+                        req.session.save(() => {
+                            res.render('index', {login: true});
+                        });
                     }
                 })
             } else {
