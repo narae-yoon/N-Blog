@@ -14,13 +14,41 @@
       </form>
 
       <div class="header__link">
-        <% if (!login) { %>
+        <% if (!login) {%>
 
         <a href="/users/login" class="btn">로그인</a>
         <a href="/users/signUp" class="btn btn--em">회원가입</a>
 
         <% } else { %>
-        <a href="/user/mypage" class="btn">내 블로그 가기</a>
+        <div class="dropdown">
+          <button type="button" class="btn dropdown__btn js-userdrop-btn">
+            <img src="/images/user/user_img.jpg" alt="" class="btn__img" />
+            <span class="blind">사용자 메뉴 열기</span>
+          </button>
+
+          <div class="dropdown__wrap user-menu__wrap js-userdrop">
+            <ul class="dropdown__list user-menu">
+              <li class="dropdown__item">
+                <a href="" class="dropdown__link user-menu__info">
+                  <small class="user-menu__email">user@email.com</small>
+                  <strong class="user-menu__nickname">닉네임</strong>
+                </a>
+              </li>
+              <li class="dropdown__item">
+                <a href="" class="dropdown__link">내 블로그</a>
+              </li>
+              <li class="dropdown__item">
+                <a href="" class="dropdown__link">스크랩</a>
+              </li>
+              <li class="dropdown__item">
+                <a href="" class="dropdown__link">설정</a>
+              </li>
+              <li class="dropdown__item">
+                <a href="/user/logout" class="dropdown__link">로그아웃</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <% } %>
       </div>
