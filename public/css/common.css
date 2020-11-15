@@ -1,20 +1,3 @@
-.btn {
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 5px 10px;
-  height: 36px;
-  font-size: 15px;
-  text-decoration: none;
-  border: 1px solid var(--line-color-light);
-  border-radius: 3px;
-  color: #767676;
-  transition: ease-in 0.1s background;
-}
-
-.btn:hover {
-  background-color: var(--line-color-light);
-  color: var(--dark-color);
-}
 :root {
   --main-color: #449dd1;
   --point-color: #e34a6f;
@@ -59,6 +42,24 @@ button:hover {
   margin: -1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+}
+
+.btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  height: 36px;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid var(--line-color-light);
+  border-radius: 3px;
+  color: #767676;
+  transition: ease-in 0.1s background;
+}
+
+.btn:hover {
+  background-color: var(--line-color-light);
+  color: var(--dark-color);
 }
 
 .btn--em {

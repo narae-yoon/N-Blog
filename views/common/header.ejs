@@ -1,22 +1,23 @@
 <header class="header">
-  <div class="header-wrap">
-    <h1 class="header__logo">
-      <a href="/"> N-Blog </a>
+  <div class="header__wrap">
+    <h1>
+      <a href="/" class="header__logo"><span class="blind">N-Blog</span></a>
     </h1>
 
     <div class="header__menu">
-      <form action="" method="get" class="header__search">
-        <input type="text" placeholder="Search.." class="input" />
-        <button type="submit" class="fas fa-search btn-search">
+      <form action="" method="get" class="search__form">
+        <input type="text" placeholder="Search.." class="input search__input" />
+        <button type="submit" class="btn--search">
           <span class="blind"> 검색 </span>
+          <%- include ('../../public/images/icon/search.svg') %>
         </button>
       </form>
 
       <div class="header__link">
         <% if (!login) { %>
 
-        <a href="/users/signUp" class="btn btn-em">회원가입</a>
         <a href="/users/login" class="btn">로그인</a>
+        <a href="/users/signUp" class="btn btn--em">회원가입</a>
 
         <% } else { %>
         <a href="/user/mypage" class="btn">내 블로그 가기</a>
