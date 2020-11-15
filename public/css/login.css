@@ -1,0 +1,164 @@
+.sec__login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__img {
+  width: 370px;
+  margin-right: 20px;
+}
+
+.login__wrap {
+  margin-left: 20px;
+  width: 300px;
+}
+
+.login__title {
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.login__list {
+  list-style: none;
+}
+
+.list__title {
+  margin: 30px 0 15px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--line-color-medium);
+}
+
+.list__title::before,
+.list__title::after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 105px;
+  background-color: var(--line-color-medium);
+  vertical-align: middle;
+}
+
+.list__title::before {
+  margin-right: 10px;
+}
+.list__title::after {
+  margin-left: 10px;
+}
+
+.login__list-find {
+  display: flex;
+  justify-content: center;
+  margin: 3px 0;
+}
+
+.list-find__item:nth-child(even)::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  vertical-align: middle;
+  background-color: var(--line-color-medium);
+}
+
+.list-find__link {
+  display: inline-block;
+  width: 80px;
+  margin: 5px 10px;
+  color: var(--dark-color);
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: ease-in 0.1s opacity;
+}
+
+.list-find__link:hover {
+  opacity: 1;
+}
+
+.login__input-wrap {
+  padding: 5px 10px;
+  border-left: 2px solid var(--main-color);
+  border-bottom: 1px solid var(--line-color-light);
+}
+
+.login__input-wrap + .login__input-wrap {
+  margin-top: -1px;
+}
+
+.icon__login {
+  float: left;
+  vertical-align: middle;
+  width: 20px;
+  transform: translate(0, 30%);
+  fill: var(--dark-color);
+  opacity: 0.7;
+  transition: ease-in 0.1s opacity;
+}
+
+.input--email,
+.input--pw {
+  clear: both;
+  border: 0;
+}
+
+.input--email:focus + .icon--user,
+.input--pw:focus + .icon--pw {
+  opacity: 1;
+}
+
+.login__btn {
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+  padding: 7px 20px;
+  background-color: #fff;
+  border: 2px solid var(--point-color);
+  color: var(--point-color);
+  text-align: center;
+}
+
+.login__btn--submit {
+  margin-top: 20px;
+}
+
+.login__btn--google {
+  border-color: #db4437;
+  color: #db4437;
+  fill: #db4437;
+}
+
+.login__btn--facebook {
+  border-color: #4267b2;
+  color: #4267b2;
+  fill: #4267b2;
+}
+
+.login__btn--submit:hover {
+  background: var(--point-color);
+  color: var(--light-color);
+}
+
+.login__btn--google:hover {
+  background: #db4437;
+  color: #fff;
+  fill: #fff;
+}
+
+.login__btn--facebook:hover {
+  background: #4267b2;
+  color: #fff;
+  fill: #fff;
+}
+
+.icon__sns {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-top: -3px;
+}
