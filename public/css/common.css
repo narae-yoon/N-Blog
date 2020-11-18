@@ -1,3 +1,4 @@
+/* 기본 스타일 */
 :root {
   --main-color: #449dd1;
   --point-color: #e34a6f;
@@ -7,6 +8,7 @@
 
   --line-color-light: #ededed;
   --line-color-medium: #dbdbdb;
+  --line-color-dark: #191919;
 
   --max-size: 1500px;
 }
@@ -15,6 +17,10 @@ body {
   margin: 0;
   font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin-top: 70px;
+}
+
+textarea {
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
 }
 
 h1,
@@ -27,7 +33,8 @@ li {
 }
 
 button,
-input {
+input,
+textarea {
   outline: 0;
 }
 
@@ -35,6 +42,7 @@ button:hover {
   cursor: pointer;
 }
 
+/* 레이아웃 */
 .blind {
   position: absolute;
   width: 1px;
@@ -44,6 +52,18 @@ button:hover {
   clip: rect(0 0 0 0);
 }
 
+.sec__wrap {
+  max-width: var(--max-size);
+  margin: 0 auto;
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.bg {
+  background: url('../images/background.svg') no-repeat;
+  background-position: center;
+}
+/* 버튼 */
 .btn {
   display: inline-block;
   box-sizing: border-box;
@@ -53,12 +73,14 @@ button:hover {
   text-decoration: none;
   border: 1px solid var(--line-color-light);
   border-radius: 3px;
+  background-color: #fff;
   color: #767676;
   transition: ease-in 0.1s background;
 }
 
 .btn:hover {
   background-color: var(--line-color-light);
+  border-color: var(--line-color-medium);
   color: var(--dark-color);
 }
 
@@ -70,6 +92,7 @@ button:hover {
 
 .btn--em:hover {
   background-color: #fff;
+  border-color: var(--point-color);
   color: var(--point-color);
 }
 
@@ -81,14 +104,65 @@ button:hover {
   object-fit: cover;
 }
 
+/* 폼 */
+.form__wrap {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__title {
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.form__img {
+  width: 370px;
+  margin-right: 20px;
+}
+
 .input {
   box-sizing: border-box;
   padding: 0 15px;
   height: 36px;
   border: 1px solid var(--line-color-light);
   border-radius: 3px;
+  transition: ease-in 0.1s border;
 }
 
+.textarea {
+  box-sizing: border-box;
+  padding: 0 15px;
+  resize: none;
+  border: 1px solid var(--line-color-light);
+  border-radius: 3px;
+  transition: ease-in 0.1s border;
+}
+
+.input:hover,
+.input:focus,
+.textarea:hover,
+.textarea:focus {
+  border-color: var(--line-color-medium);
+}
+
+.sec__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.form__wrap {
+  margin-left: 20px;
+  width: 300px;
+}
+
+/* 드롭다운 */
 .dropdown {
   position: relative;
 }
@@ -166,8 +240,8 @@ button:hover {
   border-radius: 0 0 3px 3px;
 }
 
-.sec__wrap {
-  max-width: var(--max-size);
-  margin: 0 auto;
-  margin-top: 100px;
+@media (max-width: 700px) {
+  .form__img {
+    display: none;
+  }
 }

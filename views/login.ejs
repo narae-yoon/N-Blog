@@ -2,22 +2,22 @@
 <html lang="ko">
   <head>
     <%- include ('./common/head') %>
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/form.css" />
     <title>N-blog</title>
   </head>
-  <body>
+  <body class="bg">
     <%- include ('./common/header') %>
 
     <div class="sec__wrap">
-      <section class="sec__login">
+      <section class="sec__form">
         <div class="login__img-wrap">
-          <img src="images/login.png" alt="" class="login__img" />
+          <img src="images/login.png" alt="" class="form__img" />
         </div>
 
-        <div class="login__wrap">
-          <h1 class="login__title">로그인</h1>
+        <div class="form__wrap">
+          <h1 class="form__title">로그인</h1>
 
-          <form action="/users/login" method="post" class="login__form">
+          <form action="/users/login" method="post">
             <div class="login__input-wrap">
               <span class="blind">이메일</span>
               <input

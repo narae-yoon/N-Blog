@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <%- include ('./common/head') %>
-    <link rel="stylesheet" href="css/form.css" />
-    <title>N-blog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"
+    />
+    <link rel="stylesheet" href="../public/css/common.css" />
+    <link rel="stylesheet" href="../public/css/header.css" />
+    <link rel="stylesheet" href="../public/css/signUp.css" />
+    <title>N-Blog test</title>
+    <style>
+      .logo {
+        width: 100px;
+      }
+    </style>
   </head>
   <body class="bg">
-    <%- include ('./common/header') %>
+    <header class="header">
+      <div class="header__wrap">
+        <h1>
+          <img src="../public/images/logo.png" alt="" class="logo" />
+        </h1>
+
+        <div class="header__menu">
+          <form action="" method="get" class="search__form">
+            <input
+              type="text"
+              placeholder="Search.."
+              class="input search__input"
+            />
+            <button type="submit" class="btn--search">
+              <span class="blind"> 검색 </span>
+            </button>
+          </form>
+
+          <div class="header__link">
+            <a href="/users/login" class="btn">로그인</a>
+            <a href="/users/signUp" class="btn btn--em">회원가입</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <div class="sec__wrap">
       <section class="sec__form">
-        <img src="/images/register.png" alt="" class="form__img" />
+        <img src="../public/images/register.png" alt="" class="form__img" />
         <div class="form__wrap">
           <h2 class="form__title">회원가입</h2>
 
           <form action="/users/signUp" method="post" class="form">
             <div class="input-group">
-              <label for="email" class="label js-label">이메일</label>
               <input
                 type="text"
                 id="email"
@@ -24,11 +59,11 @@
                 class="input js-input"
                 placeholder="example@email.com"
               />
+              <label for="email" class="label js-label">이메일</label>
               <button type="button" class="btn">중복체크</button>
             </div>
 
             <div class="input-group">
-              <label for="pw" class="label js-label">비밀번호</label>
               <input
                 type="password"
                 id="pw"
@@ -36,22 +71,22 @@
                 class="input js-input"
                 placeholder="8자리 이상의 문자를 입력해주세요."
               />
+              <label for="pw" class="label js-label">비밀번호</label>
             </div>
 
             <div class="input-group">
-              <label for="pw-confirm" class="label js-label">
-                비밀번호 확인
-              </label>
               <input
                 type="password"
                 id="pw-confirm"
                 name="pw-confirm"
                 class="input js-input"
               />
+              <label for="pw-confirm" class="label js-label"
+                >비밀번호 확인</label
+              >
             </div>
 
             <div class="input-group">
-              <label for="nickname" class="label js-label">닉네임</label>
               <input
                 type="text"
                 id="nickname"
@@ -59,6 +94,7 @@
                 class="input js-input"
                 placeholder="2~8 사이의 문자로 구성해주세요."
               />
+              <label for="nickname" class="label js-label">닉네임</label>
             </div>
 
             <div>
@@ -79,7 +115,6 @@
             </div>
 
             <div class="input-group">
-              <label for="intro" class="label js-label">회원소개</label>
               <textarea
                 name="intro"
                 id="intro"
@@ -87,14 +122,14 @@
                 rows="10"
                 class="textarea js-input"
               ></textarea>
+              <label for="intro" class="label js-label">회원소개</label>
             </div>
-
             <button type="submit" class="btn btn--em">가입</button>
           </form>
         </div>
       </section>
     </div>
-    <%- include ('./common/footer') %>
-    <script src="js/form.js"></script>
+
+    <script src="/js/form.js"></script>
   </body>
 </html>

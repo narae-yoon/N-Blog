@@ -1,24 +1,3 @@
-.sec__login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login__img {
-  width: 370px;
-  margin-right: 20px;
-}
-
-.login__wrap {
-  margin-left: 20px;
-  width: 300px;
-}
-
-.login__title {
-  margin-bottom: 20px;
-  font-weight: normal;
-}
-
 .login__list {
   list-style: none;
 }
@@ -139,17 +118,20 @@
 }
 
 .login__btn--submit:hover {
+  border-color: var(--point-color);
   background: var(--point-color);
   color: var(--light-color);
 }
 
 .login__btn--google:hover {
+  border-color: #db4437;
   background: #db4437;
   color: #fff;
   fill: #fff;
 }
 
 .login__btn--facebook:hover {
+  border-color: #4267b2;
   background: #4267b2;
   color: #fff;
   fill: #fff;
@@ -161,4 +143,54 @@
   vertical-align: middle;
   margin-right: 3px;
   margin-top: -3px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  opacity: 0.8;
+  transition: ease-in 0.1s;
+}
+
+.label.selected {
+  top: 2px;
+  font-size: 11px;
+}
+
+.input-group .input {
+  padding-top: 10px;
+  width: 100%;
+  height: 45px;
+  vertical-align: middle;
+}
+
+.input-group .input::placeholder {
+  color: transparent;
+}
+
+.input-group .selected.input::placeholder {
+  color: var(--medium-color);
+  opacity: 0.8;
+}
+
+.input-group .textarea {
+  padding-top: 20px;
+  width: 100%;
+  height: 70px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.input-group .btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  font-size: 13px;
 }
