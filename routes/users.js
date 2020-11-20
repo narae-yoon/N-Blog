@@ -114,4 +114,14 @@ router.post('/signUp', async (req, res) => {
     }
 });
 
+router.post('/signUp/idCheck', async (req, res) => {
+    const param = {"email" : req.body.email};
+    const conn = await pool.getConnection(conn => conn);
+    const userCnt = await conn.query(mybatisMapper.getStatement('user','selectEmailCnt', param, format));
+    
+    if (userCnt[0][0].cnt > 0) {
+        res.send('false');
+    }else res.send('true');
+});
+
 module.exports = router;

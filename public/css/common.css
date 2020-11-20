@@ -82,6 +82,18 @@ button:hover {
   transition: ease-in 0.1s background;
 }
 
+.btn:disabled {
+  background-color: var(--line-color-light);
+  border-color: var(--line-color-medium);
+}
+
+.btn:disabled:hover {
+  background-color: var(--line-color-light);
+  border-color: var(--line-color-medium);
+  color: #767676;
+  cursor: no-drop;
+}
+
 .btn:hover {
   background-color: var(--line-color-light);
   border-color: var(--line-color-medium);
