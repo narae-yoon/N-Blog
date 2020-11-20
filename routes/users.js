@@ -45,9 +45,11 @@ router.post('/login', async (req, res) => {
     const conn = await pool.getConnection(conn => conn);
     const userCnt = await conn.query(mybatisMapper.getStatement('user', 'selectEmailCnt', param, format));
     
-    if (userCnt[0].length > 0) {
+    if (userCnt[0][0].cnt > 0) {
         const userDB = await conn.query(mybatisMapper.getStatement('user', 'selectLogin', param, format));
     
+        console.log('user pw :', user.pw ,'user email : ', user.email);
+        console.log('db'+JSON.stringify(userDB[0]));
         bcrypt.compare(user.pw, userDB[0][0].MBR_PW, (err, success) => {
             if(success) {
                 conn.query(mybatisMapper.getStatement('user','resetPwErr', param, format));
@@ -69,14 +71,10 @@ router.post('/login', async (req, res) => {
                  res.render('login',{state: 2});
              }
         });
+    }else {
+        console.log('[로그인: 실패] 등록되지 않은 이메일');
+        res.render('login',{state:2});
     }
-
-    // 에러처리
-    // if(err) {
-    //     console.log('[로그인: 실패] db 오류');
-    //     console.log('[로그인: 실패] 등록되지 않은 이메일');
-    //     res.render('login',{state: 2});
-    // }
 
     conn.release();
 });

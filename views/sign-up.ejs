@@ -18,12 +18,16 @@
             <div class="input-group">
               <label for="email" class="label js-label">이메일</label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 class="input js-input"
                 placeholder="example@email.com"
+                required
               />
+              <div class="form__error invisible">
+                이메일 형식으로 입력해주세요.
+              </div>
               <button type="button" class="btn">중복체크</button>
             </div>
 
@@ -35,7 +39,12 @@
                 name="pw"
                 class="input js-input"
                 placeholder="8자리 이상의 문자를 입력해주세요."
+                minlength="8"
+                required
               />
+              <div class="form__error invisible">
+                8자리 이상의 문자를 입력해주세요.
+              </div>
             </div>
 
             <div class="input-group">
@@ -47,7 +56,10 @@
                 id="pw-confirm"
                 name="pw-confirm"
                 class="input js-input"
+                minlength="8"
+                required
               />
+              <div class="form__error invisible">비밀번호가 같지 않습니다.</div>
             </div>
 
             <div class="input-group">
@@ -58,7 +70,13 @@
                 name="nickname"
                 class="input js-input"
                 placeholder="2~8 사이의 문자로 구성해주세요."
+                minlength="2"
+                maxlength="8"
+                required
               />
+              <div class="form__error invisible">
+                2~8 사이의 문자로 구성해주세요.
+              </div>
             </div>
 
             <div>
@@ -69,6 +87,7 @@
                   name="gender"
                   value="110101"
                   class="radio"
+                  required
                 />
                 남
               </label>
@@ -87,9 +106,10 @@
                 rows="10"
                 class="textarea js-input"
               ></textarea>
+              <div class="form__error"></div>
             </div>
 
-            <button type="submit" class="btn btn--em">가입</button>
+            <button type="button" class="btn btn--em js-submit">가입</button>
           </form>
         </div>
       </section>
