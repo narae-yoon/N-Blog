@@ -141,10 +141,14 @@ button:hover {
   margin-right: 20px;
 }
 
-.form__error {
+.form__err {
   font-size: 13px;
   color: var(--point-color);
   padding: 0 3px;
+}
+
+.form__err.positive {
+  color: var(--main-color);
 }
 
 .input {
@@ -156,11 +160,13 @@ button:hover {
   transition: ease-in 0.1s border;
 }
 
-.form.was-validated .input:valid {
+.form.was-validated .input.valid,
+.form.was-validated .btn.valid {
   border-color: var(--main-color);
 }
 
-.form.was-validated .input:invalid {
+.form.was-validated .input.invalid,
+.form.was-validated .btn.invalid {
   border-color: var(--point-color);
 }
 

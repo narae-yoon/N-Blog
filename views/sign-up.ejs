@@ -16,16 +16,16 @@
 
           <form action="/users/signUp" method="post" class="form">
             <div class="input-group">
-              <label for="email" class="label js-label">이메일</label>
+              <label for="email" class="label">이메일</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                class="input js-input"
+                class="input"
                 placeholder="example@email.com"
                 required
               />
-              <div class="form__error invisible">
+              <div class="form__err invisible">
                 이메일 형식으로 입력해주세요.
               </div>
               <button type="button" class="btn js-id-check" disabled>
@@ -34,17 +34,17 @@
             </div>
 
             <div class="input-group">
-              <label for="pw" class="label js-label">비밀번호</label>
+              <label for="pw" class="label">비밀번호</label>
               <input
                 type="password"
                 id="pw"
                 name="pw"
-                class="input js-input"
+                class="input"
                 placeholder="8자리 이상의 문자를 입력해주세요."
                 minlength="8"
                 required
               />
-              <div class="form__error invisible">
+              <div class="form__err invisible">
                 8자리 이상의 문자를 입력해주세요.
               </div>
             </div>
@@ -61,34 +61,34 @@
                 minlength="8"
                 required
               />
-              <div class="form__error invisible">비밀번호가 같지 않습니다.</div>
+              <div class="form__err invisible"></div>
             </div>
 
             <div class="input-group">
-              <label for="nickname" class="label js-label">닉네임</label>
+              <label for="nickname" class="label">닉네임</label>
               <input
                 type="text"
                 id="nickname"
                 name="nickname"
-                class="input js-input"
+                class="input"
                 placeholder="2~8 사이의 문자로 구성해주세요."
                 minlength="2"
                 maxlength="8"
                 required
               />
-              <div class="form__error invisible">
+              <div class="form__err invisible">
                 2~8 사이의 문자로 구성해주세요.
               </div>
             </div>
 
             <div>
               <span class="blind">성별</span>
-              <label class="btn">
+              <label class="btn js-gender-label">
                 <input
                   type="radio"
                   name="gender"
                   value="110101"
-                  class="radio"
+                  class="radio js-gender"
                   required
                 />
                 남
@@ -97,18 +97,21 @@
                 <input type="radio" name="gender" value="110102" />
                 여
               </label>
+              <div class="form__err js-gender-err invisible">
+                성별을 선택해주세요.
+              </div>
             </div>
 
             <div class="input-group">
-              <label for="intro" class="label js-label">회원소개</label>
+              <label for="intro" class="label">회원소개</label>
               <textarea
                 name="intro"
                 id="intro"
                 cols="30"
                 rows="10"
-                class="textarea js-input"
+                class="textarea"
               ></textarea>
-              <div class="form__error"></div>
+              <div class="form__err"></div>
             </div>
 
             <button type="button" class="btn btn--em js-submit">가입</button>
