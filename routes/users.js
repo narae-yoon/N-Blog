@@ -48,8 +48,6 @@ router.post('/login', async (req, res) => {
     if (userCnt[0][0].cnt > 0) {
         const userDB = await conn.query(mybatisMapper.getStatement('user', 'selectLogin', param, format));
     
-        console.log('user pw :', user.pw ,'user email : ', user.email);
-        console.log('db'+JSON.stringify(userDB[0]));
         bcrypt.compare(user.pw, userDB[0][0].MBR_PW, (err, success) => {
             if(success) {
                 conn.query(mybatisMapper.getStatement('user','resetPwErr', param, format));
@@ -60,9 +58,9 @@ router.post('/login', async (req, res) => {
                     nickname: userDB[0][0].MBR_NKNM,
                     intro: userDB[0][0].MBR_INTRO
                 };
-
+                console.log(req.session.login);
                 req.session.save(() => {
-                    res.render('index', {login: true});
+                    res.render('index', {login: req.session.login});
                 });
              }
              else {

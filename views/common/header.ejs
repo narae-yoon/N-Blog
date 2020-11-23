@@ -14,7 +14,7 @@
       </form>
 
       <div class="header__link">
-        <% if (!login) {%>
+        <% if (!login) { %>
 
         <a href="/users/login" class="btn">로그인</a>
         <a href="/users/signUp" class="btn btn--em">회원가입</a>
@@ -30,8 +30,10 @@
             <ul class="dropdown__list user-menu">
               <li class="dropdown__item">
                 <a href="" class="dropdown__link user-menu__info">
-                  <small class="user-menu__email">user@email.com</small>
-                  <strong class="user-menu__nickname">닉네임</strong>
+                  <small class="user-menu__email"> <%= login.email %> </small>
+                  <strong class="user-menu__nickname">
+                    <%= login.nickname %>
+                  </strong>
                 </a>
               </li>
               <li class="dropdown__item">
